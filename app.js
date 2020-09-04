@@ -7,10 +7,10 @@
 //https://v6.exchangerate-api.com/v6/c4f8d9e7b93e1781e094878b/latest/USD
 
 //global variables
-const currencyEL_one = document.querySelector("#currency-one");
-const currencyEL_two = document.querySelector("#currency-two");
-const amountEL_one = document.querySelector("#amount-one");
-const amountEL_two = document.querySelector("#amount-two");
+const currencyEl_one = document.querySelector("#currency-one");
+const currencyEl_two = document.querySelector("#currency-two");
+const amountEl_one = document.querySelector("#amount-one");
+const amountEl_two = document.querySelector("#amount-two");
 const rateEl = document.querySelector("#rate");
 const swapBtn = document.querySelector("#swap");
 const baseCurrencyExchangeURL =
@@ -18,9 +18,9 @@ const baseCurrencyExchangeURL =
 
 //fecth exchange rates and update the DOM accordingly
 function calculate() {
-  const currency_one = currencyEL_one.value;
+  const currency_one = currencyEl_one.value;
   // console.log(currency_one);
-  const currency_two = currencyEL_two.value;
+  const currency_two = currencyEl_two.value;
   // console.log(currency_two);
   searchCurrencyExchangeURL = baseCurrencyExchangeURL + currency_one;
 
@@ -33,18 +33,19 @@ function calculate() {
     // console.log(rate);
     rateEl.innerText = `1 ${currency_one} is equal to ${rate} ${currency_two}`;
 
-    amountEL_two = (amountEL_one.value * rate).toFixed(2);
+    amountEl_two.value = (amountEl_one.value * rate).toFixed(2);
   });
 }
 
 //event listeners
-currencyEL_one.addEventListener("change", calculate);
-amountEL_one.addEventListener("input", calculate);
-currencyEL_two.addEventListener("change", calculate);
-amountEL_two.addEventListener("input", calculate);
+currencyEl_one.addEventListener("change", calculate);
+amountEl_one.addEventListener("input", calculate);
+currencyEl_two.addEventListener("change", calculate);
+amountEl_two.addEventListener("input", calculate);
+
 swapBtn.addEventListener("click", () => {
-  const temp = currencyEL_one.value;
-  currencyEL_one.value = currencyEl_two.value;
+  const temp = currencyEl_one.value;
+  currencyEl_one.value = currencyEl_two.value;
   currencyEl_two.value = temp;
   calculate();
 })
