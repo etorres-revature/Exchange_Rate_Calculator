@@ -1,4 +1,4 @@
-# [ExchangeRate Calculator](https://etorres-revature.github.io/Exchange_Rate_Calculator/)
+# [Exchange Rate Calculator](https://etorres-revature.github.io/Exchange_Rate_Calculator/)
 
 A simple [Exchange Rate Calculator](https://etorres-revature.github.io/Exchange_Rate_Calculator/) using [ExchangeRate-API](https://www.exchangerate-api.com/).
 
